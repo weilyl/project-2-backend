@@ -15,19 +15,17 @@ const mongoURI = process.env.mongoURI + "ac_db";
 
 // Security Configurations
 
-const whitelist = ["http://localhost:3000/"];
-var corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(
-//         new Error("Not allowed by CORS, domain needs to be added to whitelist")
-//       );
-//     }
-//   },
-    origin: 'https://acpc-wardrobe.netlify.app/',
-    optionsSuccessStatus: 200
+const whitelist = ["http://localhost:3000/", "https://acpc-wardrobe.netlify.app/", "https://acpc-api.herokuapp.com/"];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(
+        new Error("Not allowed by CORS, domain needs to be added to whitelist")
+      );
+    }
+  },
 };
 
 
