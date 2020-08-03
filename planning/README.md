@@ -94,10 +94,10 @@ Error info?
 **RESOLUTION**: 
 
 
-**ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`.
+**ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`. Referenced [this](https://kinsta.com/knowledgebase/400-bad-request/) list of possible reasons for a `400 Bad Request` error to troubleshoot.
 
 **RESOLUTION**: 
-Seola had the same error and shared the fix with me. `&w=majority` at the end of the mongoURI in `.env` should be deleted. 
+Seola had the same error and shared the fix with me. `&w=majority` at the end of the mongoURI in `.env` should be deleted. She got the fix from [here](https://howtocreateapps.com/how-to-connect-mongodb-atlas-with-node-js-using-mongoose/). 
 
 **ERROR**: 
 Postman error `404 Not Found` when making a GET request on `localhost:3000/animals`. Empty brackets were expected on Postman and in browser (browser error: `Cannot GET /animals`). Issue may be due to combining routes/route handlers for both animals and outfits in single files. 

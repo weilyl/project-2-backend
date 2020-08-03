@@ -17,9 +17,7 @@ router.post("/", createAnimal)
 // update existing Animal
 router.put("/:id", updateAnimal)
 
-
 // delete existing Animal
 router.delete("/:id", deleteAnimal)
-
 
 module.exports = router;
