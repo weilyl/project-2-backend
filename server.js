@@ -15,7 +15,7 @@ const mongoURI = process.env.mongoURI + "ac_db";
 
 // Security Configurations
 
-const whitelist = ["http://localhost:3000/", "http://acpc-api.herokuapp.com/"];
+const whitelist = ["http://localhost:3000/", "http://herokuapp.com/"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
