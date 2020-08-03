@@ -92,3 +92,38 @@ What's supposed to happen:
 Error info?
 
 **RESOLUTION**: 
+
+**ERROR**: 
+
+```
+2020-08-03T05:00:04.294444+00:00 heroku[router]: at=info method=GET path="/" host=acpc-api.herokuapp.com request_id=7c4b6ea7-77eb-4749-abd5-2f5d28a7658b fwd="74.68.118.73" dyno=web.1 connect=0ms service=8ms status=500 bytes=404 protocol=https
+2020-08-03T05:00:04.296279+00:00 app[web.1]: Error: Not allowed by CORS, domain needs to be added to whitelist
+```
+
+`Internal server error` occurred when deploying backend to Heroku.  
+
+**RESOLUTION**: 
+
+Attempt 1: Whitelist was updated from `https` to `http` for the heroku domain.
+Attempt 2: Whitelist was updated from `http://acpc-api.herokuapp.com` to `http://herokuapp.com/`.
+Attempt 3: Whitelist was updated from `http://herokuapp.com/` to `http://heroku.com`.
+Attempt 4: `http://heroku.com` was removed from CORS whitelist.
+Attempt 5: N/A
+
+**ERROR**: 
+
+```
+2020-08-03T04:46:08.993617+00:00 app[web.1]: > project-2-backend@1.0.0 start /app
+2020-08-03T04:46:08.993617+00:00 app[web.1]: > node server.js
+2020-08-03T04:46:08.993618+00:00 app[web.1]:
+2020-08-03T04:46:09.680069+00:00 app[web.1]: /app/server.js:17
+2020-08-03T04:46:09.680110+00:00 app[web.1]: NODE_ENV === "development" ? app.use(cors()) : app.use(cors(corsOptions));
+2020-08-03T04:46:09.680111+00:00 app[web.1]: ^
+2020-08-03T04:46:09.680112+00:00 app[web.1]:
+2020-08-03T04:46:09.680113+00:00 app[web.1]: ReferenceError: corsOptions is not defined
+```
+
+"Application error" occurred when deploying backend to Heroku. 
+
+**RESOLUTION**: 
+Used `heroku logs --tail --app=acpc-api` in Command Prompt to find above error logs. Middleware was updated to define `corsOptions` and to include whitelist. 
