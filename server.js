@@ -4,7 +4,8 @@ const express = require('express');
 const app = express(); 
 const morgan = require("morgan");
 const cors = require("cors");
-const router = require("./controllers") // subject to change
+const animalRouter = require("./routes/animals") // subject to change
+const outfitRouter = require("./routes/outfits")
 const db = require('./db/connection'); // tenuously optional due to potential redundancy
 const mongoose= require('mongoose');
 
@@ -36,16 +37,21 @@ app.use(morgan("dev"));
 mongoose.connect(
     mongoURI, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useFindAndModify: false
     }, () => 
     {console.log("Connected to Mongo")}
 )
 
+app.use('/animals', animalRouter)
+app.use('/outfits', outfitRouter)
+
+// Simple Hello World Server to test via local host, index.html & heroku
 app.get('/', (req, res) => {
     res.send("Hello world")
 });
 
 // Server Listener
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}}`);
+    console.log(`Listening on port ${PORT}`);
 });

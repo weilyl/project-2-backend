@@ -93,6 +93,64 @@ Error info?
 
 **RESOLUTION**: 
 
+
+**ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`.
+
+**RESOLUTION**: 
+Seola had the same error and shared the fix with me. `&w=majority` at the end of the mongoURI in `.env` should be deleted. 
+
+**ERROR**: 
+Postman error `404 Not Found` when making a GET request on `localhost:3000/animals`. Empty brackets were expected on Postman and in browser (browser error: `Cannot GET /animals`). Issue may be due to combining routes/route handlers for both animals and outfits in single files. 
+
+Attempted to submit a POST request with the following: 
+```
+{
+    "name": "Chevre",
+    "photo": "https://static.wikia.nocookie.net/acnl/images/e/eb/Chevre.png/revision/latest/scale-to-width-down/340?cb=20130905174716",
+    "photo-alt-text": "Chevre from New Leaf on a transparent background wearing the Natty Tee"
+}
+```
+
+Postman returned:
+
+```
+{
+    "code": 79,
+    "codeName": "UnknownReplWriteConcern",
+    "name": "MongoWriteConcernError",
+    "result": {
+        "n": 1,
+        "opTime": {
+            "ts": "6856779902104895490",
+            "t": 5
+        },
+        "electionId": "7fffffff0000000000000005",
+        "ok": 1,
+        "writeConcernError": {
+            "code": 79,
+            "codeName": "UnknownReplWriteConcern",
+            "errmsg": "No write concern mode named 'majorityac_db' found in replica set configuration"
+        },
+        "$clusterTime": {
+            "clusterTime": "6856779902104895490",
+            "signature": {
+                "hash": "Sc+elkVcSDoNIYO6tUDRBudCBdU=",
+                "keyId": "6854717737982230531"
+            }
+        },
+        "operationTime": "6856779902104895490"
+    }
+}
+```
+When commenting out all but .get() for animals:
+```
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (C:\Users\weily\Documents\seir-6-29\student\unit02\project-2-AC-API\project-2-backend\node_modules\express\lib\router\route.js:202:15)
+``` 
+
+**RESOLUTION**: 
+When all outfits-related lines were commented out in `server.js`, the error was resolved.
+
 **ERROR**: 
 
 ```
