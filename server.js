@@ -13,6 +13,22 @@ const PORT = process.env.PORT;
 const NODE_ENV = process.env.NODE_ENV;
 const mongoURI = process.env.mongoURI + "ac_db";
 
+// Security Configurations
+
+const whitelist = ["http://localhost:3000/", "https://acpc-api.herokuapp.com/"];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(
+        new Error("Not allowed by CORS, domain needs to be added to whitelist")
+      );
+    }
+  },
+};
+
+
 //Middleware
 NODE_ENV === "development" ? app.use(cors()) : app.use(cors(corsOptions));
 app.use(express.json());
