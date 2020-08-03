@@ -108,7 +108,7 @@ Attempt 1: Whitelist was updated from `https` to `http` for the heroku domain.
 Attempt 2: Whitelist was updated from `http://acpc-api.herokuapp.com` to `http://herokuapp.com/`.
 Attempt 3: Whitelist was updated from `http://herokuapp.com/` to `http://heroku.com`.
 Attempt 4: `http://heroku.com` was removed from CORS whitelist.
-Attempt 5: N/A
+Attempt 5: Updated mongoURI in `.env` with the URI from MongoDB Atlas. Issue resolved.
 
 **ERROR**: 
 
