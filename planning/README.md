@@ -57,7 +57,7 @@ The final result of this project will be a functional full-stack CRUD site and A
 
 ## Additional Libraries
 
-Express, Mongoose, CORS, Morgan
+Express, Mongoose, CORS, Morgan, Bootstrap, jQuery
 
 
 ## Code Snippet
@@ -94,7 +94,12 @@ Error info?
 **RESOLUTION**: 
 
 
-**ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`. Referenced [this](https://kinsta.com/knowledgebase/400-bad-request/) list of possible reasons for a `400 Bad Request` error to troubleshoot.
+**ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`. Referenced [this](https://kinsta.com/knowledgebase/400-bad-request/) list of possible reasons for a `400 Bad Request` error to troubleshoot. 
+
+Postman error:
+```
+{"code":79,"codeName":"UnknownReplWriteConcern","name":"MongoWriteConcernError","result":{"n":1,"opTime":{"ts":"6856107580809281537","t":5},"electionId":"7fffffff0000000000000005","ok":1,"writeConcernError":{"code":79,"codeName":"UnknownReplWriteConcern","errmsg":"No write concern mode named 'majority/' found in replica set configuration"},"$clusterTime":{"clusterTime":"6856107580809281537","signature":{"hash":"ZJZyqa/CXR1BM+4ILhe6onveBi0=","keyId":"6855417834831347715"}},"operationTime":"6856107580809281537"}}
+```
 
 **RESOLUTION**: 
 Seola had the same error and shared the fix with me. `&w=majority` at the end of the mongoURI in `.env` should be deleted. She got the fix from [here](https://howtocreateapps.com/how-to-connect-mongodb-atlas-with-node-js-using-mongoose/). 
