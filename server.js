@@ -12,7 +12,7 @@ const mongoose= require('mongoose');
 // Global Variables
 const PORT = process.env.PORT;
 const NODE_ENV = process.env.NODE_ENV;
-const mongoURI = process.env.mongoURI + "ac_db";
+const mongoURI = process.env.mongoURI;
 
 // Security Configurations
 

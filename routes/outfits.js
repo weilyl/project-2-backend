@@ -13,7 +13,6 @@ router.get("/", getAllOutfits)
 // add new Outfit
 router.post("/", createOutfit)
 
-
 // update existing Outfit
 router.put("/:id", updateOutfit)
 
