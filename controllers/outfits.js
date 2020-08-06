@@ -1,5 +1,6 @@
 const db = require('../db/connection');
 const Outfits = require('../models/outfits');
+const Animals = require('../models/animals');
 
 // read and return all outfits
 const getAllOutfits = async (req, res) => {
@@ -25,25 +26,26 @@ const createOutfit = async (req, res) => {
 }
 
 // return specific Outfit
-// const getOutfit = async (req, res) => {
-//     try {
-//         const specificOutfit = await Animals.findById(req.params.id);
-//         if (specificOutfit.outfits !== null || undefined || 0) {
-//             const referencedAnimals = specificAnimal.outfits.forEach(async (req) => {
-//                 const anOutfit = await Outfits.findById(specificAnimal.outfits);
-//                 return {
-//                     "name": specificAnimal._id, 
-//                     "photo": specificAnimal.photo,
-//                     "photo-alt-text": specificAnimal["photo-alt-text"],
-//                     "outfits": anOutfit
-//                 }
-//             })
-//         } 
-//         res.status(200).json(specificAnimal);
-//     } catch(error) {
-//         res.status(400).send(error);
-//     }
-// }
+const getOutfit = async (req, res) => {
+    try {
+        const specificOutfit = await Outfits.findById(req.params.id);
+        if (specificOutfit.outfits !== null || undefined || 0) {
+            //const referencedAnimals = 
+            specificOutfit.animals.forEach(async (req) => {
+                const anAnimal = await Animals.findById(specificOutfit.animals);
+                return {
+                    "name": specificOutfit._id, 
+                    "photo": specificOutfit.photo,
+                    "photo-alt-text": specificOutfit["photo-alt-text"],
+                    "animals": anAnimal
+                }
+            })
+        } 
+        res.status(200).json(specificOutfit);
+    } catch(error) {
+        res.status(400).send(error);
+    }
+}
 
 // update outfit 
 const updateOutfit = async (req, res) => {
@@ -70,6 +72,7 @@ const deleteOutfit = async (req, res) => {
 module.exports = {
     getAllOutfits,
     createOutfit,
+    getOutfit,
     updateOutfit,
     deleteOutfit
 }

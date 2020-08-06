@@ -101,31 +101,7 @@ const makeMatch = async (req, res) => {
             await chosenOutfit.animals.push(chosenAnimal._id);
         };
         await chosenOutfit.save();
-        
-        console.log(chosenAnimal, chosenOutfit)
-
-        // from stackoverflow
-        // const chosenAnimal = await Animals.findById(req.params.animalid);
-        // chosenAnimal.save(function (err) { 
-        //     async () => {
-        //     if (err) return handleError(err);
-
-        //     const chosenOutfit = await Outfits.findById(req.params.outfitid).updateOne(animals.push(chosenAnimal._id));
-
-        //     chosenOutfit.save(function (err) {
-        //         if (err) return handleError(err);
-        //     })
-        // }
-        // });
-        // testing with Lia
-        // console.log(req.params.animalid, req.params.outfitid, "hello");
-        // const chosenAnimal = await Animals.findById(req.params.animalid).populate('outfits');
-        // console.log(req.params.animalid, req.params.outfitid, "hello2");
-        // //const chosenOutfit = await Outfits.findById(req.params.outfitid);
-        // //console.log(chosenAnimal, chosenOutfit, req.params.outfitid, chosenOutfit._id, ObjectId(chosenOutfit._id));
-        // chosenAnimal.outfits.push(req.params.outfitid);
-        // //chosenOutfit.animals.push(req.params.animalid);
-        res.status(200).json(chosenAnimal);  
+        res.status(200).json(chosenOutfit);  
     } catch (error) {
         res.status(400).send(error);
     }
