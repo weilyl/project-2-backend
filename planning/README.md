@@ -88,10 +88,19 @@ Documentation of all major issues encountered and their resolution.
 **ERROR**: 
 
 What's wrong:
+
 What's supposed to happen:
+
 Error info?
 
 **RESOLUTION**: 
+
+
+**ERROR**:
+`Error: connect ECONNREFUSED 127.0.0.1:3000` when repeating PUT request, but with edited controller (added if statements) to account for documents having already been referenced.
+
+
+**RESOLUTION**:
 
 
 **ERROR**:
@@ -109,8 +118,10 @@ Next fixes:
 - console-log within controllers for errors
 - more functions inside functions
 
-**RESOLUTION**:
+Tried: `ObjectId()`, `objectName.property._id`, `req.params.id`
 
+**RESOLUTION**:
+`.save()`. Thank you Rosemary for reading and understanding [this](https://markstarkman.com/blog/2011/09/15/mongodb-many-to-many-relationship-data-modeling/#:~:text=Introduction,for%20implementing%20them%20in%20mongoDB)
 
 **ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`. Referenced [this](https://kinsta.com/knowledgebase/400-bad-request/) list of possible reasons for a `400 Bad Request` error to troubleshoot. 
 

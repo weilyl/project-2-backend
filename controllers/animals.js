@@ -90,18 +90,30 @@ const deleteAnimal = async (req, res) => {
 // reference animal and outfit to each other
 const makeMatch = async (req, res) => {
     try {
+        //debuggathon with Rosemary
         const chosenAnimal = await Animals.findById(req.params.animalid);
-        chosenAnimal.save(function (err) { 
-            async () => {
-            if (err) return handleError(err);
+        const chosenOutfit = await Outfits.findById(req.params.outfitid);
+        await chosenAnimal.outfits.push(chosenOutfit._id);
+        await chosenAnimal.save();
+        await chosenOutfit.animals.push(chosenAnimal._id);
+        await chosenOutfit.save();
+        
+        console.log(chosenAnimal, chosenOutfit)
 
-            const chosenOutfit = await Outfits.findById(req.params.outfitid).updateOne(animals.push(chosenAnimal._id));
+        // from stackoverflow
+        // const chosenAnimal = await Animals.findById(req.params.animalid);
+        // chosenAnimal.save(function (err) { 
+        //     async () => {
+        //     if (err) return handleError(err);
 
-            chosenOutfit.save(function (err) {
-                if (err) return handleError(err);
-            })
-        }
-        });
+        //     const chosenOutfit = await Outfits.findById(req.params.outfitid).updateOne(animals.push(chosenAnimal._id));
+
+        //     chosenOutfit.save(function (err) {
+        //         if (err) return handleError(err);
+        //     })
+        // }
+        // });
+        // testing with Lia
         // console.log(req.params.animalid, req.params.outfitid, "hello");
         // const chosenAnimal = await Animals.findById(req.params.animalid).populate('outfits');
         // console.log(req.params.animalid, req.params.outfitid, "hello2");
