@@ -93,9 +93,13 @@ const makeMatch = async (req, res) => {
         //debuggathon with Rosemary
         const chosenAnimal = await Animals.findById(req.params.animalid);
         const chosenOutfit = await Outfits.findById(req.params.outfitid);
-        await chosenAnimal.outfits.push(chosenOutfit._id);
+        if (chosenAnimal.outfits.includes(chosenOutfit._id) === false) {
+            await chosenAnimal.outfits.push(chosenOutfit._id);
+        }; 
         await chosenAnimal.save();
-        await chosenOutfit.animals.push(chosenAnimal._id);
+        if (chosenOutfit.animals.includes(chosenAnimal._id) === false) {
+            await chosenOutfit.animals.push(chosenAnimal._id);
+        };
         await chosenOutfit.save();
         
         console.log(chosenAnimal, chosenOutfit)
