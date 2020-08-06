@@ -6,7 +6,7 @@ const outfitSchema = new Schema(
         'name': {type: String},
         'photo': {type: String},
         'photo-alt-text': {type: String},
-        'animals': {type: Schema.Types.ObjectId, ref: 'Animal'}
+        'animals': [{type: Schema.Types.ObjectId, ref: 'Animal'}]
     }, 
     {timestamps: false}
 )
