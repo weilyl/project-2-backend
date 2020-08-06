@@ -25,6 +25,7 @@ router.put("/:id", updateAnimal)
 // delete existing Animal
 router.delete("/:id", deleteAnimal)
 
-router.delete("/match/:id/:id2", makeMatch)
+// match one animal and one outfit together
+router.put("/match/:id/:id2", makeMatch)
 
 module.exports = router;

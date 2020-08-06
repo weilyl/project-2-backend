@@ -75,12 +75,12 @@ const makeMatch = async (req, res) => {
         const returnOutfit = await Outfits.findById(req.params.id);
         const returnOutfit2 = await Outfits.findById(req.params.id2);
         if (returnAnimal !== null || undefined || 0 && returnOutfit2 !== null || undefined || 0) {
-            returnAnimal.outfits = returnOutfit2;
-            returnOutfit2.animals = returnAnimal
+            returnAnimal.outfits.push(returnOutfit2);
+            returnOutfit2.animals.push(returnAnimal);
         } else if (returnAnimal2 !== null || undefined || 0 && returnOutfit0 !== null || undefined || 0) {
-            returnAnimal2.outfits = returnOutfit;
-            returnOutfit.animals = returnAnimal2
-        }
+            returnAnimal2.outfits.push(returnOutfit);
+            returnOutfit.animals.push(returnAnimal2);
+        }  
     } catch (error) {
         res.status(400).send(error);
     }
@@ -94,3 +94,5 @@ module.exports = {
     deleteAnimal,
     makeMatch
 }
+
+// code for getAnimal & makeMatch controllers are inspired by Rosemary & Magda's controllers forming referenced relationships

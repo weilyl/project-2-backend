@@ -94,6 +94,24 @@ Error info?
 **RESOLUTION**: 
 
 
+**ERROR**:
+`404 Not Found` when issuing `PUT` request in Postman at `localhost:3000/match/5f2b8b4502e1b600177d0d9a/5f2b8e4d02e1b600177d0d9c` using object ID's for an existing animal object and an existing outfit object.
+
+Attempted fixes: `.delete` to `.put` in routes, amended URI to `localhost:3000/animals/match/5f2b8b4502e1b600177d0d9a/5f2b8e4d02e1b600177d0d9c` , used `.push` in `makeMatch` controller to append documents into empty arrays rather than using `=`.
+
+New error: `Error: socket hang up`.
+
+Next fixes:
+- remove base cases (if statements)
+- use something other than PUT request?
+- use .update
+- tinker more with .push [blog](https://www.wlaurance.com/2017/04/mongoose-tip-push), [stackoverflow](https://stackoverflow.com/questions/33049707/push-items-into-mongo-array-via-mongoose), [documentation](https://docs.mongodb.com/manual/reference/operator/update/push/)
+- console-log within controllers for errors
+- more functions inside functions
+
+**RESOLUTION**:
+
+
 **ERROR**: Postman error `400 Bad Request. The request cannot be fulfilled due to bad syntax.` when testing PUT request on `localhost:3000/animals/:id`. Referenced [this](https://kinsta.com/knowledgebase/400-bad-request/) list of possible reasons for a `400 Bad Request` error to troubleshoot. 
 
 Postman error:
