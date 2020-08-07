@@ -37,23 +37,23 @@ The final result of this project will be a functional full-stack CRUD site and A
 | Initialize node.js & install dependencies | H | 0.5hr | 0.25hr |
 | Set up dependencies, global variables, security configurations, middleware | H | 1hr | 0.5hr |
 | Set up models | H | 0.5hr | 0.25hr | 
-| Set up controllers and/or routes | H | 0.5hr | 0.25hr |
+| Set up controllers and/or routes | H | 0.5hr | 10hr |
 | Run Mongoose & confirm via Postman, MongoDB, node, local host, HTML | H | 2hr | 3hr | 
 | Deployment | H | 2hr | 3hr | 
 | Bug fixes | H | 3hr | 5hr|
 |
-| Total | H | 10hrs | 12.5hrs | 
+| Total | H | 10hrs | 22.5hrs | 
 
 
 #### PostMVP 
 
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: | 
-| Document Issues | M | 3hr | 0.5hr |
+| Document Issues | M | 3hr | 1.5hr |
 | Add clothing items, outfit-animal pairing names to schemas | L | 5hr | -hr |
 | 
 |
-| Total | H | 23hrs| 13hrs | 
+| Total | H | 8hrs| 1.5hrs | 
 
 ## Additional Libraries
 
