@@ -99,8 +99,8 @@ Error info?
 **ERROR**:
 `Error: connect ECONNREFUSED 127.0.0.1:3000` when repeating PUT request, but with edited controller (added if statements) to account for documents having already been referenced.
 
-
 **RESOLUTION**:
+Fixed if statements for base cases.
 
 
 **ERROR**:

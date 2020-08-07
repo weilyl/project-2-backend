@@ -30,7 +30,7 @@ const getOutfit = async (req, res) => {
     try {
         const specificOutfit = await Outfits.findById(req.params.id);
         if (specificOutfit.outfits !== null || undefined || 0) {
-            //const referencedAnimals = 
+            const referencedOutfits = 
             specificOutfit.animals.forEach(async (req) => {
                 const anAnimal = await Animals.findById(specificOutfit.animals);
                 return {

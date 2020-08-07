@@ -6,4 +6,15 @@ https://getbootstrap.com/docs/3.4/css/#grid-offsetting
 
 look up optgroup https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
+https://stackoverflow.com/questions/48774535/js-fetch-api-get-method-return-%C6%92-json-native-code/48774578
+	const response = await fetch(...).then(res => res.json())
+
+	is the same as data in:
+
+	const data = await response.json()
+	(if one did not use .then())
+	still won't return an array of objects tho
+
+
+
 
