@@ -6,13 +6,13 @@
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description & Worksheet README.md | Incomplete
-|Day 1| Wireframes / Priority Matrix / Timeline | Incomplete
-|Day 2| Wrap up Backend | Inomplete
-|Day 3| Focus on [Front-end](https://github.com/weilyl/project-2-frontend) | Incomplete
-|Day 4| jQuery/Mongoose Bug Fixes | Incomplete
-|Day 5| MVP, Final Touches & Deployment | Incomplete
-|Day 6| Present | Incomplete
+|Day 1| Project Description & Worksheet README.md | Complete
+|Day 1| Wireframes / Priority Matrix / Timeline | Complete
+|Day 2| Wrap up Backend | Complete
+|Day 3| Focus on [Front-end](https://github.com/weilyl/project-2-frontend) | Complete
+|Day 4| jQuery/Mongoose Bug Fixes | Complete
+|Day 5| MVP, Final Touches & Deployment | Complete
+|Day 6| Present | Complete
 
 ## Project Description
 
@@ -41,7 +41,6 @@ The final result of this project will be a functional full-stack CRUD site and A
 | Run Mongoose & confirm via Postman, MongoDB, node, local host, HTML | H | 2hr | 3hr | 
 | Deployment | H | 2hr | 3hr | 
 | Bug fixes | H | 3hr | 5hr|
-|
 | Total | H | 10hrs | 22.5hrs | 
 
 
@@ -51,8 +50,6 @@ The final result of this project will be a functional full-stack CRUD site and A
 | --- | :---: |  :---: | :---: | 
 | Document Issues | M | 3hr | 1.5hr |
 | Add clothing items, outfit-animal pairing names to schemas | L | 5hr | -hr |
-| 
-|
 | Total | H | 8hrs| 1.5hrs | 
 
 ## Additional Libraries
