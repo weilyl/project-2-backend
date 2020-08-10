@@ -28,6 +28,7 @@ const getAnimal = async (req, res) => {
     try {
         const specificAnimal = await Animals.findById(req.params.id);
         if (specificAnimal.outfits !== null || undefined || 0) {
+            // following function is thanks to Magda for showing me a similar function in their controller
             const referencedOutfits = specificAnimal.outfits.forEach(async (req) => {
                 const anOutfit = await Outfits.findById(specificAnimal.outfits);
                 return {
@@ -75,6 +76,7 @@ const makeMatch = async (req, res) => {
         if (chosenAnimal.outfits.includes(chosenOutfit._id) === false) {
             await chosenAnimal.outfits.push(chosenOutfit._id);
         }; 
+        // special thanks to Rosmary for teaching me how and when to use .save() in a controller, and for showing me that it is the key to referencing two models to each other
         await chosenAnimal.save();
         if (chosenOutfit.animals.includes(chosenAnimal._id) === false) {
             await chosenOutfit.animals.push(chosenAnimal._id);
